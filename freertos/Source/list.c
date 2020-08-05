@@ -60,4 +60,24 @@ void vListInsert(List_t * pxList,ListItem_t * pxNewListItem)
     (pxList->uxNumberOfItems)++;
 }
 
+UBaseType_t uxListRemove(ListItem_t * const pxItemToRemove)
+{
+    List_t * const pxList = (List_t *) pxItemToRemove->pvContainer;
+    
+    pxItemToRemove->pxNext->pxPrevious = pxItemToRemove->pxPrevious;
+    pxItemToRemove->pxPrevious->pxNext = pxItemToRemove->pxNext;
+    
+    if(pxList->pxIndex == pxItemToRemove)
+    {
+        pxList->pxIndex = pxItemToRemove->pxPrevious;   
+    }
+    
+    pxItemToRemove->pvContainer = NULL;
+    
+    (pxList->uxNumberOfItems)--;
+    
+    return pxList->uxNumberOfItems;
+    
+    
+}
 
