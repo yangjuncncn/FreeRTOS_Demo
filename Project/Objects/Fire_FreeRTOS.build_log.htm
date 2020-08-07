@@ -26,7 +26,8 @@ Project File Date:  08/05/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.14', folder: 'C:\Keil\ARM\ARMCLANG\Bin'
-Build target 'Target 1'
+Rebuild target 'Target 1'
+assembling startup_ARMCM3.s...
 ../User/main.c(6): warning: In file included from...
 ../freertos/Source/include\list.h(1): warning: In file included from...
 ../freertos/Source/include/portmacro.h(20): warning: 'configUSE_16_BIT_TICKS' is not defined, evaluates to 0 [-Wundef]
@@ -35,34 +36,46 @@ Build target 'Target 1'
 ../freertos/Source/include/portmacro.h(29): warning: no newline at end of file [-Wnewline-eof]
 #endif /*PORTMACRO_H*/ 
                        ^
-../User/main.c(43): warning: no newline at end of file [-Wnewline-eof]
+../User/main.c(66): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
-../User/main.c(13): warning: no previous extern declaration for non-static variable 'List_Test' [-Wmissing-variable-declarations]
+../User/main.c(14): warning: no previous extern declaration for non-static variable 'List_Test' [-Wmissing-variable-declarations]
 struct xLIST List_Test;
              ^
-../User/main.c(13): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+../User/main.c(14): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 struct xLIST List_Test;
 ^
-../User/main.c(15): warning: no previous extern declaration for non-static variable 'List_Item1' [-Wmissing-variable-declarations]
+../User/main.c(16): warning: no previous extern declaration for non-static variable 'List_Item1' [-Wmissing-variable-declarations]
 struct xLIST_ITEM List_Item1;
-                  ^
-../User/main.c(15): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-struct xLIST_ITEM List_Item1;
-^
-../User/main.c(16): warning: no previous extern declaration for non-static variable 'List_Item2' [-Wmissing-variable-declarations]
-struct xLIST_ITEM List_Item2;
                   ^
 ../User/main.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-struct xLIST_ITEM List_Item2;
+struct xLIST_ITEM List_Item1;
 ^
-../User/main.c(17): warning: no previous extern declaration for non-static variable 'List_Item3' [-Wmissing-variable-declarations]
-struct xLIST_ITEM List_Item3;
+../User/main.c(17): warning: no previous extern declaration for non-static variable 'List_Item2' [-Wmissing-variable-declarations]
+struct xLIST_ITEM List_Item2;
                   ^
 ../User/main.c(17): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+struct xLIST_ITEM List_Item2;
+^
+../User/main.c(18): warning: no previous extern declaration for non-static variable 'List_Item3' [-Wmissing-variable-declarations]
+struct xLIST_ITEM List_Item3;
+                  ^
+../User/main.c(18): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 struct xLIST_ITEM List_Item3;
 ^
-7 warnings generated.
+../User/main.c(20): warning: no previous extern declaration for non-static variable 'flag1' [-Wmissing-variable-declarations]
+uint32_t flag1;
+         ^
+../User/main.c(20): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint32_t flag1;
+^
+../User/main.c(21): warning: no previous extern declaration for non-static variable 'flag2' [-Wmissing-variable-declarations]
+uint32_t flag2;
+         ^
+../User/main.c(21): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint32_t flag2;
+^
+9 warnings generated.
 compiling main.c...
 ../freertos/Source/list.c(1): warning: In file included from...
 ../freertos/Source/include\list.h(1): warning: In file included from...
@@ -74,11 +87,10 @@ compiling main.c...
                        ^
 2 warnings generated.
 compiling list.c...
-assembling startup_ARMCM3.s...
 compiling system_ARMCM3.c...
 linking...
-Program Size: Code=480 RO-data=992 RW-data=4 ZI-data=1108  
-".\Objects\Fire_FreeRTOS.axf" - 0 Error(s), 9 Warning(s).
+Program Size: Code=10140 RO-data=1576 RW-data=16 ZI-data=4536  
+".\Objects\Fire_FreeRTOS.axf" - 0 Error(s), 11 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -99,9 +111,9 @@ Package Vendor: ARM
    * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: ARM::Device:Startup:1.2.2
+      Source file:   Device\ARM\ARMCM3\Source\system_ARMCM3.c
       Include file:  Device\ARM\ARMCM3\Include\ARMCM3.h
       Source file:   Device\ARM\ARMCM3\Source\ARM\startup_ARMCM3.s
-      Source file:   Device\ARM\ARMCM3\Source\system_ARMCM3.c
 Build Time Elapsed:  00:00:02
 </pre>
 </body>

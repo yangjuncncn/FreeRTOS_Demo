@@ -4,6 +4,7 @@
 *****************************************
 */
 #include "list.h"
+#include <stdio.h>
 
 /*
 *****************************************
@@ -16,11 +17,22 @@ struct xLIST_ITEM List_Item1;
 struct xLIST_ITEM List_Item2;
 struct xLIST_ITEM List_Item3;
 
+uint32_t flag1;
+uint32_t flag2;
+void delay(uint32_t count);
+    
 /*
 *****************************************
 *						main()
 *****************************************
 */
+
+void delay(uint32_t count)
+{
+    for(;count != 0;count--);
+
+}
+
 int main(void)
 {
 	vListInitialise(&List_Test);
@@ -37,7 +49,18 @@ int main(void)
     vListInsert(&List_Test,&List_Item3);
     
     for(;;)
-    {
+    {   
+        printf("jfiejfiejfiejfiejf");
+        flag1 = 1;
+        delay(100);
+        flag1 = 0;
+        delay(100);
+        
+        flag2 = 1;
+        delay(100);
+        flag2 = 0;
+        delay(100);
+        
         
     }
 }
