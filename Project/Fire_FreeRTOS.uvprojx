@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>DEBUG_ENABLE_SEMIHOST</Define>
               <Undefine></Undefine>
-              <IncludePath>..\freertos\Source\include</IncludePath>
+              <IncludePath>..\freertos\Source\include;..\freertos\portable\RVDS\ARM_CM3\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -415,6 +415,36 @@
               <FileName>list.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\freertos\Source\include\list.h</FilePath>
+            </File>
+            <File>
+              <FileName>task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\freertos\Source\task.c</FilePath>
+            </File>
+            <File>
+              <FileName>task.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\freertos\Source\include\task.h</FilePath>
+            </File>
+            <File>
+              <FileName>projdefs.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\freertos\Source\include\projdefs.h</FilePath>
+            </File>
+            <File>
+              <FileName>FreeRTOS.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\freertos\Source\include\FreeRTOS.h</FilePath>
+            </File>
+            <File>
+              <FileName>port.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\freertos\portable\RVDS\ARM_CM3\include\port.h</FilePath>
+            </File>
+            <File>
+              <FileName>port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\freertos\portable\RVDS\ARM_CM3\port.c</FilePath>
             </File>
           </Files>
         </Group>

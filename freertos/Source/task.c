@@ -1,10 +1,12 @@
 #include "portmacro.h"
 #include "FreeRTOSConfig.h"
 #include "task.h"
+#include "port.h"
 
 TCB_t Task1TCB;
 TCB_t Task2TCB;
-
+List_t pxReadyTasksLists[configMAX_PRIORITIES];
+void *pxCurrentTCB;
 #if(configSUPPORT_STATIC_ALLOCATION == 1)
 TaskHandle_t xTaskCreateStatic(TaskFunction_t pxTaskCode,
                         const char * const pcName,
@@ -53,7 +55,7 @@ static void prvInitialiseNewTask(TaskFunction_t pxTaskCode,
     
     pxTopOfStack = pxNewTCB->pxStack +(ulStackDepth - (uint32_t)1);
     
-    pxTopOfStack = (StackType_t *) \ (((uint32_t)pxTopOfStack)&(~((uint32_t) 0x0007)));
+    pxTopOfStack = (StackType_t *) (((uint32_t)pxTopOfStack)&(~((uint32_t) 0x0007)));
     
     for(x = (UBaseType_t) 0;x < (UBaseType_t) configMAX_TASK_NAME_LEN;x++)
     {
@@ -69,14 +71,35 @@ static void prvInitialiseNewTask(TaskFunction_t pxTaskCode,
     
     vListInitialise(&(pxNewTCB->xStatuListItem));
     
-    listSET_LIST_ITEM_OWNER(&(pxNewTCB->xStateListItem),pxNewTCB);
+    listSET_LIST_ITEM_OWNER(&(pxNewTCB->xStatuListItem),pxNewTCB);
     
     
-    pxNewTCB->pxTopOfStack = pxPortInitialiseStack(pxTopOfStack,pxTaskCode,pvParameters);
+    pxNewTCB->pxTopOfStack = pxPortInittialiseStack(pxTopOfStack,pxTaskCode,pvParameters);
     
     
-    if((void*)pxCreatedTask != NUL)
+    if((void*)pxCreatedTask != NULL)
     {
         *pxCreatedTask = (TaskHandle_t)pxNewTCB;
     }
+}
+
+void prvInitialiseTaskLists(void)
+{
+    UBaseType_t uxPriority;
+    
+    for(uxPriority = (UBaseType_t) 0U;uxPriority < (UBaseType_t) configMAX_PRIORITIES;uxPriority++)
+    {
+        vListInitialise(&(pxReadyTasksLists[uxPriority]));
+    }
+}
+
+void vTaskStartScheduler(void)
+{
+    pxCurrentTCB = &Task1TCB;
+    
+    if(xPortStartScheduler() != pdFALSE)
+    {
+        
+    }
+
 }

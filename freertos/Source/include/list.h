@@ -1,7 +1,7 @@
 #include "portmacro.h"
 
 #define listSET_LIST_ITEM_OWNER(pxListItem,pxOwner)\
-    ((oxListItem)->pvOwner = (void *)(pxOwner)
+    (pxListItem)->pvOwner = (void *)(pxOwner)
 #define listGET_LIST_ITEM_OWNER(pxListItem)\
     ((pxListItem)->pvOwner)
 #define listSET_LIST_ITEM_VALUE(pxListItem,xValue)\
